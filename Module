@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------------------------------------------------------------
+ini_file – Tweak settings in INI files
+
+Manage (add, remove, change) individual settings in an INI-style file without having to manage the file as a whole with, say, 
+template or assemble. Adds missing sections if they don’t exist.
+
+Ex:- 
+# Before 2.3, option 'dest' was used instead of 'path'
+- name: Ensure "fav=lemonade is in section "[drinks]" in specified file
+  ini_file:
+    path: /etc/conf
+    section: drinks
+    option: fav
+    value: lemonade
+    mode: 0600
+    backup: yes
+
+------------------------------------------------------------------------------------------------------------------------------------
