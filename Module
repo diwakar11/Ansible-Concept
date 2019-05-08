@@ -100,4 +100,30 @@ set_fact – Set host facts from a task
   overridden. See Variable Precedence Guide for more information.
 - This module is also supported for Windows targets.
 
+---------------------------------------------------------------------------------------------------------------------------------------
+script – Runs a local script on a remote node after transferring it
+
+- The script module takes the script name followed by a list of space-delimited arguments.
+- The local script at path will be transferred to the remote node and then executed.
+- The given script will be processed through the shell environment on the remote node.
+- This module does not require python on the remote system, much like the raw module.
+- This module is also supported for Windows targets.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
