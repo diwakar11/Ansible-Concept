@@ -4,3 +4,7 @@ Module:-
 3. set_fact – Set host facts from a task
 4. script – Runs a local script on a remote node after transferring it
 5. command – Executes a command on a remote node
+6. Including and Importing:-
+Note:- Also be aware that this behaviour changed in 2.4; prior to that Ansible version only include was available, 
+and it behaved differently depending on context.
+
