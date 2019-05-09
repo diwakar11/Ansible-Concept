@@ -1,0 +1,6 @@
+Module:-
+1. ini_file – Tweak settings in INI files
+2. include_vars – Load variables from files, dynamically within a task
+3. set_fact – Set host facts from a task
+4. script – Runs a local script on a remote node after transferring it
+5. command – Executes a command on a remote node
