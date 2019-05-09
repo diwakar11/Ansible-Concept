@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------------------------------------------------------------
-ini_file – Tweak settings in INI files
+1. ini_file – Tweak settings in INI files
 
 Manage (add, remove, change) individual settings in an INI-style file without having to manage the file as a whole with, say, 
 template or assemble. Adds missing sections if they don’t exist.
@@ -17,7 +17,7 @@ Ex:-
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
-include_vars – Load variables from files, dynamically within a task
+2. include_vars – Load variables from files, dynamically within a task
 
 -Loads variables from a YAML/JSON files dynamically from within a file or from a directory recursively during task runtime. 
 If loading a directory, the files are sorted alphabetically before being loaded.
@@ -91,7 +91,7 @@ From Apache Installation Module:-
 
 -------------------------------------------------------------------------------------------------------------------------------------
 
-set_fact – Set host facts from a task
+3. set_fact – Set host facts from a task
 
 - This module allows setting new variables. Variables are set on a host-by-host basis just like facts discovered by the setup module.
 - These variables will be available to subsequent plays during an ansible-playbook run, but will not be saved across executions even if 
@@ -101,7 +101,7 @@ set_fact – Set host facts from a task
 - This module is also supported for Windows targets.
 
 ---------------------------------------------------------------------------------------------------------------------------------------
-script – Runs a local script on a remote node after transferring it
+4. script – Runs a local script on a remote node after transferring it
 
 - The script module takes the script name followed by a list of space-delimited arguments.
 - The local script at path will be transferred to the remote node and then executed.
@@ -111,7 +111,7 @@ script – Runs a local script on a remote node after transferring it
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-command – Executes a command on a remote node
+5. command – Executes a command on a remote node
 -------------------------------------------------------------------------------------------------------------------------------------
 
 
