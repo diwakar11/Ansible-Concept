@@ -7,4 +7,5 @@ Module:-
 6. Including and Importing:-
 Note:- Also be aware that this behaviour changed in 2.4; prior to that Ansible version only include was available, 
 and it behaved differently depending on context.
+7. package – Generic OS package manager
 
