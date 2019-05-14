@@ -222,6 +222,13 @@ controller as they manipulate local data.
 
 In addition the ones provided by Jinja2, Ansible ships with it’s own and allows users to add their own custom filters.
 
+-----
+To use one value on true and another on false (new in version 1.9):
+
+{{ (name == "John") | ternary('Mr','Ms') }}
+-------
+For more filter refer docs
+
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------
