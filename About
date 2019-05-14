@@ -8,5 +8,7 @@ Module:-
 Note:- Also be aware that this behaviour changed in 2.4; prior to that Ansible version only include was available, 
 and it behaved differently depending on context.
 7. package – Generic OS package manager
-8. 
+8. Filters :-
+Filters in Ansible are from Jinja2, and are used for transforming data inside a template expression. Jinja2 ships with many filters. 
+See builtin filters in the official Jinja2 template documentation.
 
