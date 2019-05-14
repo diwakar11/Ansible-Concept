@@ -235,6 +235,10 @@ To get the last name of a file path, like ‘foo.txt’ out of ‘/etc/asdf/foo.
 {{ path | basename }}
 
 -------
+To get the directory from a path:
+
+{{ path | dirname }}
+-------
 For more filter refer docs
 
 
