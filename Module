@@ -230,6 +230,11 @@ To use one value on true and another on false (new in version 1.9):
 i.e docker_yum_repo_url: https://download.docker.com/linux/{{ (ansible_distribution == "Fedora") | ternary("fedora","centos") }}/docker-{{ docker_edition }}.repo
 
 -------
+To get the last name of a file path, like ‘foo.txt’ out of ‘/etc/asdf/foo.txt’:
+
+{{ path | basename }}
+
+-------
 For more filter refer docs
 
 
