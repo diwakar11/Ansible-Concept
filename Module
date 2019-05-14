@@ -226,6 +226,9 @@ In addition the ones provided by Jinja2, Ansible ships with it’s own and allow
 To use one value on true and another on false (new in version 1.9):
 
 {{ (name == "John") | ternary('Mr','Ms') }}
+
+i.e docker_yum_repo_url: https://download.docker.com/linux/{{ (ansible_distribution == "Fedora") | ternary("fedora","centos") }}/docker-{{ docker_edition }}.repo
+
 -------
 For more filter refer docs
 
