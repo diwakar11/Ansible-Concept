@@ -2,3 +2,41 @@
 We already know that we can set variables in 3 different ways: with vars, vars_prompt or by using the register key below a task. 
 The set_fact module is yet another way.
 -----------------------------------------------------------------------------------------------------------------------------------------
+Need to dig more
+Delegation:- 
+This isn’t actually rolling update specific but comes up frequently in those cases.
+
+If you want to perform a task on one host with reference to other hosts, use the ‘delegate_to’ keyword on a task.
+
+Run Once:- 
+In some cases there may be a need to only run a task one time for a batch of hosts. This can be achieved by configuring “run_once” on a task:
+
+---
+# ...
+
+  tasks:
+
+    # ...
+
+    - command: /opt/application/upgrade_db.py
+      run_once: true
+
+    # ...
+This directive forces the task to attempt execution on the first host in the current batch and then applies all results and facts to all the hosts in the same batch.
+
+This approach is similar to applying a conditional to a task such as:
+
+- command: /opt/application/upgrade_db.py
+  when: inventory_hostname == webservers[0]
+  
+But the results are applied to all the hosts.
+
+Like most tasks, this can be optionally paired with “delegate_to” to specify an individual host to execute on:
+
+- command: /opt/application/upgrade_db.py
+  run_once: true
+  delegate_to: web01.example.org
+As always with delegation, the action will be executed on the delegated host, but the information is still that of the original host in the task.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
