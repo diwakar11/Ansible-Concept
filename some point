@@ -1,0 +1,4 @@
+-----------------------------------------------------------------------------------------------------------------------------------------
+We already know that we can set variables in 3 different ways: with vars, vars_prompt or by using the register key below a task. 
+The set_fact module is yet another way.
+-----------------------------------------------------------------------------------------------------------------------------------------
