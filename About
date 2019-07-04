@@ -1,3 +1,5 @@
+# ansible test-servers -m ping -u ec2-user
+
 Module:-
 1. ini_file – Tweak settings in INI files
 2. include_vars – Load variables from files, dynamically within a task
@@ -11,7 +13,9 @@ and it behaved differently depending on context.
 8. Filters :-
 Filters in Ansible are from Jinja2, and are used for transforming data inside a template expression. Jinja2 ships with many filters. 
 See builtin filters in the official Jinja2 template documentation.
-
+9. ping – Try to connect to host, verify a usable python and return pong on success
+10. setup – Gathers facts about remote hosts
+11. copy – Copy files to remote locations
 
 -----------------------------------------------------------------------------------------
 Go through :-
@@ -29,3 +33,9 @@ User Module
 https://dzone.com/articles/10-easy-to-use-modules-in-ansible-1
 
 -------------------------------------------------------------------------------------------
+
+
+
+
+
+
