@@ -16,6 +16,7 @@ See builtin filters in the official Jinja2 template documentation.
 9. ping – Try to connect to host, verify a usable python and return pong on success
 10. setup – Gathers facts about remote hosts
 11. copy – Copy files to remote locations
+12. fetch – Fetch files from remote nodes
 
 -----------------------------------------------------------------------------------------
 Go through :-
