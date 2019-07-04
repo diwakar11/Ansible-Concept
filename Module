@@ -245,13 +245,100 @@ For more filter refer docs
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
+9. ping – Try to connect to host, verify a usable python and return pong on success
 
+Ping is used when we want to check whether the connection with our hosts defined in the inventory file is established or not.
 
+# ansible test-servers -m ping -u ec2-user
 
+ping changes to pong if an SSH connection is established.
 
+------------------------------------------------------------------------------------------------------------------------------------
 
+10. setup – Gathers facts about remote hosts
 
+This module is automatically called by playbooks to gather useful variables about remote hosts that can be used in playbooks. 
+It can also be executed directly by /usr/bin/ansible to check what variables are available to a host. Ansible provides many facts 
+about the system, automatically.
 
+This module is also supported for Windows targets.
+
+# ansible test-servers -m setup -u ec2-user
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+11. copy – Copy files to remote locations
+
+- The copy module copies a file from the local or remote machine to a location on the remote machine.
+- Use the fetch module to copy files from remote locations to the local box.
+- If you need variable interpolation in copied files, use the template module. Using a variable in the content field will result in 
+unpredictable output.
+- For Windows targets, use the win_copy module instead.
+
+- name: Copy file with owner and permissions
+  copy:
+    src: /srv/myfiles/foo.conf
+    dest: /etc/foo.conf
+    owner: foo
+    group: foo
+    mode: '0644'
+
+- name: Copy file with owner and permission, using symbolic representation
+  copy:
+    src: /srv/myfiles/foo.conf
+    dest: /etc/foo.conf
+    owner: foo
+    group: foo
+    mode: u=rw,g=r,o=r
+
+- name: Another symbolic mode example, adding some permissions and removing others
+  copy:
+    src: /srv/myfiles/foo.conf
+    dest: /etc/foo.conf
+    owner: foo
+    group: foo
+    mode: u+rw,g-wx,o-rwx
+
+- name: Copy a new "ntp.conf file into place, backing up the original if it differs from the copied version
+  copy:
+    src: /mine/ntp.conf
+    dest: /etc/ntp.conf
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+    
+ - name: Copy a new "sudoers" file into place, after passing validation with visudo
+  copy:
+    src: /mine/sudoers
+    dest: /etc/sudoers
+    validate: /usr/sbin/visudo -cf %s
+
+- name: Copy a "sudoers" file on the remote machine for editing
+  copy:
+    src: /etc/sudoers
+    dest: /etc/sudoers.edit
+    remote_src: yes
+    validate: /usr/sbin/visudo -cf %s
+
+- name: Copy using inline content
+  copy:
+    content: '# This file was moved to /etc/other.conf'
+    dest: /etc/mine.conf
+
+- name: If follow=yes, /path/to/file will be overwritten by contents of foo.conf
+  copy:
+    src: /etc/foo.conf
+    dest: /path/to/link  # link to /path/to/file
+    follow: yes
+
+- name: If follow=no, /path/to/link will become a file and be overwritten by contents of foo.conf
+  copy:
+    src: /etc/foo.conf
+    dest: /path/to/link  # link to /path/to/file
+    follow: no   
+    
+------------------------------------------------------------------------------------------------------------------------------------
 
 
 
