@@ -12,3 +12,20 @@ and it behaved differently depending on context.
 Filters in Ansible are from Jinja2, and are used for transforming data inside a template expression. Jinja2 ships with many filters. 
 See builtin filters in the official Jinja2 template documentation.
 
+
+-----------------------------------------------------------------------------------------
+Go through :-
+Ping Module
+Setup Module
+Copy Module
+Yum Module
+Shell Module
+Service Module
+Debug Module
+Template Module
+Include Module
+User Module
+
+https://dzone.com/articles/10-easy-to-use-modules-in-ansible-1
+
+-------------------------------------------------------------------------------------------
