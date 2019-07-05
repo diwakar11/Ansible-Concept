@@ -21,12 +21,13 @@ See builtin filters in the official Jinja2 template documentation.
 14. dnf - Manages packages with the dnf package manager
 15. shell – Execute shell commands on targets
 16. command – Execute commands on targets
+17. service – Manage services
+18. debug – Print statements during execution
 
 
 -----------------------------------------------------------------------------------------
 Go through :-
 
-Service Module
 Debug Module
 Template Module
 Include Module
