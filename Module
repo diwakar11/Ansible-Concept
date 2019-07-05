@@ -486,8 +486,113 @@ Installs, upgrade, removes, and lists packages and groups with the dnf package m
     autoremove: no
 
 ----------------------------------------------------------------------------------------------------------------------------------------
+15. shell – Execute shell commands on targets
 
+The shell module takes the command name followed by a list of space-delimited arguments.
+It is almost exactly like the command module but runs the command through a shell (/bin/sh) on the remote node.
+For Windows targets, use the win_shell module instead.
+
+- name: Execute the command in remote shell; stdout goes to the specified file on the remote.
+  shell: somescript.sh >> somelog.txt
+
+- name: Change the working directory to somedir/ before executing the command.
+  shell: somescript.sh >> somelog.txt
+  args:
+    chdir: somedir/
+
+# You can also use the 'args' form to provide the options.
+- name: This command will change the working directory to somedir/ and will only run when somedir/somelog.txt doesn't exist.
+  shell: somescript.sh >> somelog.txt
+  args:
+    chdir: somedir/
+    creates: somelog.txt
+
+- name: Run a command that uses non-posix shell-isms (in this example /bin/sh doesn't handle redirection and wildcards together but bash does)
+  shell: cat < /tmp/*txt
+  args:
+    executable: /bin/bash
+
+- name: Run a command using a templated variable (always use quote filter to avoid injection)
+  shell: cat {{ myfile|quote }}
+  
+# You can use shell to run other executables to perform actions inline
+- name: Run expect to wait for a successful PXE boot via out-of-band CIMC
+  shell: |
+    set timeout 300
+    spawn ssh admin@{{ cimc_host }}
+
+    expect "password:"
+    send "{{ cimc_password }}\n"
+
+    expect "\n{{ cimc_name }}"
+    send "connect host\n"
+
+    expect "pxeboot.n12"
+    send "\n"
+
+    exit 0
+  args:
+    executable: /usr/bin/expect
+  delegate_to: localhost
+
+# Disabling warnings
+- name: Using curl to connect to a host via SOCKS proxy (unsupported in uri). Ordinarily this would throw a warning.
+  shell: curl --socks5 localhost:9000 http://www.ansible.com
+  args:
+    warn: no
+    
 ------------------------------------------------------------------------------------------------------------------------------------
+16. command – Execute commands on targets
+
+The command module takes the command name followed by a list of space-delimited arguments.
+The given command will be executed on all selected nodes.
+The command(s) will not be processed through the shell, so variables like $HOME and operations like "<", ">", "|", ";" and "&" will 
+not work. Use the shell module if you need these features.
+
+To create command tasks that are easier to read, pass parameters using the args task keyword.
+For Windows targets, use the win_command module instead.
+
+- name: return motd to registered var
+  command: cat /etc/motd
+  register: mymotd
+
+- name: Run command if /path/to/database does not exist (without 'args').
+  command: /usr/bin/make_database.sh db_user db_name creates=/path/to/database
+
+# 'args' is a task keyword, passed at the same level as the module
+- name: Run command if /path/to/database does not exist (with 'args').
+  command: /usr/bin/make_database.sh db_user db_name
+  args:
+    creates: /path/to/database
+
+- name: Change the working directory to somedir/ and run the command as db_owner if /path/to/database does not exist.
+  command: /usr/bin/make_database.sh db_user db_name
+  become: yes
+  become_user: db_owner
+  args:
+    chdir: somedir/
+    creates: /path/to/database
+
+# 'argv' is a parameter, indented one level from the module
+- name: Use 'argv' to send a command as a list - leave 'command' empty
+  command:
+    argv:
+      - /usr/bin/make_database.sh
+      - Username with whitespace
+      - dbname with whitespace
+
+- name: safely use templated variable to run command. Always use the quote filter to avoid injection issues.
+  command: cat {{ myfile|quote }}
+  register: myoutput
+  
+  -------------------------------------------------------------------------------------------------------------------------
+  
+  
+  
+  
+  
+  
+  
 
 
 
