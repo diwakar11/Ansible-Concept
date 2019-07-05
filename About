@@ -17,19 +17,22 @@ See builtin filters in the official Jinja2 template documentation.
 10. setup – Gathers facts about remote hosts
 11. copy – Copy files to remote locations
 12. fetch – Fetch files from remote nodes
+13. yum - Manages packages with the yum package manager
+14. dnf - Manages packages with the dnf package manager
+15. shell – Execute shell commands on targets
+16. command – Execute commands on targets
+
 
 -----------------------------------------------------------------------------------------
 Go through :-
-Ping Module
-Setup Module
-Copy Module
-Yum Module
-Shell Module
+
 Service Module
 Debug Module
 Template Module
 Include Module
 User Module
+
+Difference between shell and command module
 
 https://dzone.com/articles/10-easy-to-use-modules-in-ansible-1
 
