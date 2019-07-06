@@ -666,6 +666,117 @@ This module is also supported for Windows targets.
     
 -----------------------------------------------------------------------------------------------------------------------------
 
+19. template – Template a file out to a remote server
+
+Templates are processed by the Jinja2 templating language.
+Documentation on the template formatting can be found in the Template Designer Documentation.
+Additional variables listed below can be used in templates.
+ansible_managed (configurable via the defaults section of ansible.cfg) contains a string which can be used to describe the template name, host, modification time of the template file and the owner uid.
+template_host contains the node name of the template’s machine.
+template_uid is the numeric user id of the owner.
+template_path is the path of the template.
+template_fullpath is the absolute path of the template.
+template_destpath is the path of the template on the remote system (added in 2.8).
+template_run_date is the date that the template was rendered.
+
+- name: Template a file to /etc/files.conf
+  template:
+    src: /mytemplates/foo.j2
+    dest: /etc/file.conf
+    owner: bin
+    group: wheel
+    mode: '0644'
+
+- name: Template a file, using symbolic modes (equivalent to 0644)
+  template:
+    src: /mytemplates/foo.j2
+    dest: /etc/file.conf
+    owner: bin
+    group: wheel
+    mode: u=rw,g=r,o=r
+
+- name: Copy a version of named.conf that is dependent on the OS. setype obtained by doing ls -Z /etc/named.conf on original file
+  template:
+    src: named.conf_{{ ansible_os_family}}.j2
+    dest: /etc/named.conf
+    group: named
+    setype: named_conf_t
+    mode: 0640
+
+- name: Create a DOS-style text file from a template
+  template:
+    src: config.ini.j2
+    dest: /share/windows/config.ini
+    newline_sequence: '\r\n'
+
+- name: Copy a new sudoers file into place, after passing validation with visudo
+  template:
+    src: /mine/sudoers
+    dest: /etc/sudoers
+    validate: /usr/sbin/visudo -cf %s
+    
+- name: Update sshd configuration safely, avoid locking yourself out
+  template:
+    src: etc/ssh/sshd_config.j2
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: '0600'
+    validate: /usr/sbin/sshd -t -f %s
+    backup: yes
+    
+ -------------------------------------------------------------------------------------------------------------------------
+ 
+20. user – Manage user accounts
+
+Manage user accounts and user attributes.
+For Windows targets, use the win_user module instead.
+
+- name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+  user:
+    name: johnd
+    comment: John Doe
+    uid: 1040
+    group: admin
+
+- name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+  user:
+    name: james
+    shell: /bin/bash
+    groups: admins,developers
+    append: yes
+
+- name: Remove the user 'johnd'
+  user:
+    name: johnd
+    state: absent
+    remove: yes
+
+- name: Create a 2048-bit SSH key for user jsmith in ~jsmith/.ssh/id_rsa
+  user:
+    name: jsmith
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+
+- name: Added a consultant whose account you want to expire
+  user:
+    name: james18
+    shell: /bin/zsh
+    groups: developers
+    expires: 1422403387
+
+- name: Starting at Ansible 2.6, modify user, remove expiry time
+  user:
+    name: james18
+    expires: -1
+    
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+ 
+
 
 
 
