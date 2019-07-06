@@ -23,19 +23,13 @@ See builtin filters in the official Jinja2 template documentation.
 16. command – Execute commands on targets
 17. service – Manage services
 18. debug – Print statements during execution
+19. template – Template a file out to a remote server
+20. user – Manage user accounts
 
 
 -----------------------------------------------------------------------------------------
-Go through :-
-
-Debug Module
-Template Module
-Include Module
-User Module
 
 Difference between shell and command module
-
-https://dzone.com/articles/10-easy-to-use-modules-in-ansible-1
 
 ---------------------------------------------------
 --------https://www.unixarena.com/    -------------
