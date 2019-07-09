@@ -29,6 +29,11 @@ See builtin filters in the official Jinja2 template documentation.
 
 -----------------------------------------------------------------------------------------
 
+Module:- 
+block
+assert – Asserts given expressions are true
+
+
 Difference between shell and command module
 
 ---------------------------------------------------
