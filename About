@@ -33,6 +33,7 @@ Module:-
 block
 assert – Asserts given expressions are true
 sysctl – Manage entries in sysctl.conf
+slurp – Slurps a file from remote nodes
 
 
 Difference between shell and command module
