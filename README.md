@@ -11,5 +11,6 @@ https://ordina-jworks.github.io/paas/2017/06/29/Openshift-an-introduction.html
 -----
 
 http://www.elasticsearchtutorial.com/basic-elasticsearch-concepts.html
+https://www.fluentd.org/guides/recipes/elasticsearch-and-s3
 
 ---------
