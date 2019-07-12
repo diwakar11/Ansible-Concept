@@ -12,5 +12,6 @@ https://ordina-jworks.github.io/paas/2017/06/29/Openshift-an-introduction.html
 
 http://www.elasticsearchtutorial.com/basic-elasticsearch-concepts.html
 https://www.fluentd.org/guides/recipes/elasticsearch-and-s3
+https://platform9.com/blog/kubernetes-logging-and-monitoring-the-elasticsearch-fluentd-and-kibana-efk-stack-part-1-fluentd-architecture-and-configuration/
 
 ---------
