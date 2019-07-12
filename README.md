@@ -4,3 +4,12 @@ It’s the upstream community project used in OpenShift Online, OpenShift dedica
 
 
 https://ordina-jworks.github.io/paas/2017/06/29/Openshift-an-introduction.html
+
+
+
+
+-----
+
+http://www.elasticsearchtutorial.com/basic-elasticsearch-concepts.html
+
+---------
