@@ -35,6 +35,7 @@ assert – Asserts given expressions are true
 sysctl – Manage entries in sysctl.conf
 slurp – Slurps a file from remote nodes
 git – Deploy software (or files) from git checkouts
+jenkins_script - Executes a groovy script in the jenkins instance
 
 
 Difference between shell and command module
