@@ -36,6 +36,7 @@ sysctl – Manage entries in sysctl.conf
 slurp – Slurps a file from remote nodes
 git – Deploy software (or files) from git checkouts
 jenkins_script - Executes a groovy script in the jenkins instance
+get_url – Downloads files from HTTP, HTTPS, or FTP to node
 
 
 Difference between shell and command module
