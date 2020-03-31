@@ -1,6 +1,10 @@
 -----------------------------
 local_action
 delegate_to
+------------------------------
+run_once: True
+register: 
+
 -----------------------------
 Module:-
 block
