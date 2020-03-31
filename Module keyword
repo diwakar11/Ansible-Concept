@@ -10,4 +10,5 @@ register:
 Module:-
 block
 stat
+fetch
 ----------------------------
