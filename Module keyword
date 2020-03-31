@@ -1,6 +1,7 @@
 -----------------------------
 local_action
 delegate_to
+delegate_to: "{{ groups[CLOUD_PROVIDER + '-' + KUBERNETES_CLUSTER_PREFIX + '-vmss-master'][0] | default('') }}"
 ------------------------------
 run_once: True
 register: 
