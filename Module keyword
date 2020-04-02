@@ -11,4 +11,26 @@ Module:-
 block
 stat
 fetch
-----------------------------
+---------------------------------------------------------
+Looping over inventory
+To loop over your inventory, or just a subset of it, you can use a regular loop with the ansible_play_batch or groups variables:
+
+# show all the hosts in the inventory
+- debug:
+    msg: "{{ item }}"
+  loop: "{{ groups['all'] }}"
+
+# show all the hosts in the current play
+- debug:
+    msg: "{{ item }}"
+  loop: "{{ ansible_play_batch }}"
+-------
+  You use a pattern almost any time you execute an ad-hoc command or a playbook
+  
+-----
+  loop: "{{ groups['azure-hosts'] }}"
+  when: '"vmss" not in item'
+------
+---------------------------------------------------------
+  
+
