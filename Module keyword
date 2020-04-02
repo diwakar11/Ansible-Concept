@@ -12,7 +12,9 @@ block
 stat
 fetch
 ---------------------------------------------------------
-Looping over inventory
+********************************
+-----Looping over inventory---
+********************************
 To loop over your inventory, or just a subset of it, you can use a regular loop with the ansible_play_batch or groups variables:
 
 # show all the hosts in the inventory
