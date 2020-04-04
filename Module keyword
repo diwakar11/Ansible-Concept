@@ -12,6 +12,7 @@ block
 stat
 fetch
 setup – Gathers facts about remote hosts
+wait_for_connection – Waits until remote system is reachable/usable
 ---------------------------------------------------------
 ********************************
 -----Looping over inventory---
