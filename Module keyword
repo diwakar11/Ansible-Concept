@@ -11,6 +11,7 @@ Module:-
 block
 stat
 fetch
+setup – Gathers facts about remote hosts
 ---------------------------------------------------------
 ********************************
 -----Looping over inventory---
