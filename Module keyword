@@ -10,7 +10,7 @@ delegate_to: "{{ groups[CLOUD_PROVIDER + '-' + KUBERNETES_CLUSTER_PREFIX + '-vms
 ------------------------------
 run_once: True
 register: 
-
+-----------------------------
 -----------------------------
 Module:-
 block
@@ -46,5 +46,17 @@ To loop over your inventory, or just a subset of it, you can use a regular loop 
   when: '"vmss" not in item'
 ------
 ---------------------------------------------------------
+  - name: Check if ipsec is running.
+    command: systemctl status ipsec
+    register: OS_IPSEC_STATUS
+
+  - name: Reload ipsec policies
+    shell: systemctl reload ipsec
+    when: OS_IPSEC_STATUS.rc == 0
+    
+rc == 0 means command executed successfully.
+
+----------------------------------------------------------
+
   
 
