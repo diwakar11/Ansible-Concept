@@ -1,6 +1,8 @@
 -----------------------------
 Special Variables
 https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html#special-variables
+Return Values  --- i.e rc, msg, stdout, stdout_lines
+https://docs.ansible.com/ansible/latest/reference_appendices/common_return_values.html
 -----------------------------
 local_action
 delegate_to
