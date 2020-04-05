@@ -15,7 +15,7 @@ setup – Gathers facts about remote hosts
 wait_for_connection – Waits until remote system is reachable/usable
 --
 when: '"vmss" not in inventory_hostname'
-inventory_hostname --- variable
+inventory_hostname ---The inventory name for the ‘current’ host being iterated over in the play
 --
 ---------------------------------------------------------
 ********************************
