@@ -1,4 +1,7 @@
 -----------------------------
+Special Variables
+https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html#special-variables
+-----------------------------
 local_action
 delegate_to
 delegate_to: "{{ groups[CLOUD_PROVIDER + '-' + KUBERNETES_CLUSTER_PREFIX + '-vmss-master'][0] | default('') }}"
