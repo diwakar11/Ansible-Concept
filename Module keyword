@@ -14,6 +14,14 @@ register:
 -----------------------------
 Module:-
 tempfile
+
+- name: use the registered var and the file module to remove the temporary file
+  file:
+    path: "{{ heptioContour.path }}"
+    state: absent
+  when: heptioContour.path is defined
+
+
 block
 stat
 fetch
