@@ -25,6 +25,8 @@ tempfile
   when: heptioContour.path is defined
 
 
+htpasswd
+cron
 block
 stat
 fetch
