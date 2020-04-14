@@ -24,6 +24,7 @@ tempfile
     state: absent
   when: heptioContour.path is defined
 
+meta – Execute Ansible ‘actions’
 assert – Asserts given expressions are true
 htpasswd
 cron
