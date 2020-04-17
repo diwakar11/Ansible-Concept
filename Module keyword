@@ -34,6 +34,7 @@ fetch
 setup – Gathers facts about remote hosts
 wait_for_connection – Waits until remote system is reachable/usable
 service_facts – Return service state information as fact data
+java_cert – Uses keytool to import/remove key from java keystore (cacerts)
 --
 when: '"vmss" not in inventory_hostname'
 inventory_hostname ---The inventory name for the ‘current’ host being iterated over in the play
