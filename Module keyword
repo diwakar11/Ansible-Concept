@@ -43,7 +43,12 @@ java_cert – Uses keytool to import/remove key from java keystore (cacerts)
 --
 when: '"vmss" not in inventory_hostname'
 inventory_hostname ---The inventory name for the ‘current’ host being iterated over in the play
+
 --
+- name: Wait for for graylog/elasticsearch/mongodb pod to come up
+  command: kubectl wait -n logging --for=condition=Ready po -l "app in (elasticsearch,graylog,mongodb)" --timeout=400s --kubeconfig ~/.kube/config
+  ignore_errors: yes
+
 ---------------------------------------------------------
 ********************************
 -----Looping over inventory---
