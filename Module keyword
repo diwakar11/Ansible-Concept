@@ -1,4 +1,12 @@
 -------------------------------------------------
+playbook_dir
+The path to the directory of the playbook that was passed to the ansible-playbook command line.
+
+  - name: "Os Upgrade on first master"
+    include_role:
+     name: "{{ playbook_dir }}/../../
+
+-------------------------------------------------
 Registering variables with a loop
 You can register the output of a loop as a variable. For example:
 - shell: "echo {{ item }}"
