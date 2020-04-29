@@ -63,6 +63,7 @@ setup – Gathers facts about remote hosts
 wait_for_connection – Waits until remote system is reachable/usable
 service_facts – Return service state information as fact data
 java_cert – Uses keytool to import/remove key from java keystore (cacerts)
+add_host – Add a host (and alternatively a group) to the ansible-playbook in-memory inventory
 ---
 - name: Create project heptioContour and all its file
   command: kubectl apply -f "{{ item.path }}"
