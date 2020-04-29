@@ -64,6 +64,7 @@ wait_for_connection – Waits until remote system is reachable/usable
 service_facts – Return service state information as fact data
 java_cert – Uses keytool to import/remove key from java keystore (cacerts)
 add_host – Add a host (and alternatively a group) to the ansible-playbook in-memory inventory
+raw – Executes a low-down and dirty command
 ---
 - name: Create project heptioContour and all its file
   command: kubectl apply -f "{{ item.path }}"
