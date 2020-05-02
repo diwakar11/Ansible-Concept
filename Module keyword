@@ -1,5 +1,10 @@
 -------------------------------------------------
 failed_when
+
+- name: Fail task when the command error output prints FAILED
+  command: /usr/bin/example-command -x -y -z
+  register: command_result
+  failed_when: "'FAILED' in command_result.stderr"
 ------------------------------------------------
 When you register a variable in a task with a loop, the registered variable contains a value for each item in the loop. 
 The data structure placed in the variable during the loop will contain a "results" attribute, that is a list of all responses from the 
