@@ -23,6 +23,12 @@ The path to the directory of the playbook that was passed to the ansible-playboo
      name: "{{ playbook_dir }}/../../
 
 -------------------------------------------------
+    - name: Get the actual no of running pods
+      set_fact:
+        pods_check: "{{ pods_check | default([]) + [{'actual_pods' : item.split('/')[0] , 'desire_pods': item.split('/')[1] }] }}"
+      loop: '{{ no_of_pods.stdout_lines | default([]) }}'
+
+-------------------------------------------------
 Registering variables with a loop
 You can register the output of a loop as a variable. For example:
 - shell: "echo {{ item }}"
