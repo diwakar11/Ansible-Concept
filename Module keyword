@@ -1,5 +1,7 @@
 ------------------------------------------------
-When you register a variable in a task with a loop, the registered variable contains a value for each item in the loop. The data structure placed in the variable during the loop will contain a results attribute, that is a list of all responses from the module. For a more in-depth example of how this works, see the Loops section on using register with a loop.
+When you register a variable in a task with a loop, the registered variable contains a value for each item in the loop. 
+The data structure placed in the variable during the loop will contain a "results" attribute, that is a list of all responses from the 
+module. For a more in-depth example of how this works, see the Loops section on using register with a loop.
 -------------------------------------------------
 playbook_dir
 The path to the directory of the playbook that was passed to the ansible-playbook command line.
