@@ -29,6 +29,19 @@ The path to the directory of the playbook that was passed to the ansible-playboo
       loop: '{{ no_of_pods.stdout_lines | default([]) }}'
 
 -------------------------------------------------
+    - name: Restart host.
+      shell: /bin/sleep 10 && /sbin/shutdown -r now
+      async: 600
+      poll: 0
+
+    - name: Waiting for host to come back.
+      wait_for_connection:
+        delay: 120
+        connect_timeout: 10
+        sleep: 30
+        timeout: 600
+
+--------------------------------------------------
 Registering variables with a loop
 You can register the output of a loop as a variable. For example:
 - shell: "echo {{ item }}"
