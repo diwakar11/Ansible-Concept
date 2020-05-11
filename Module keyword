@@ -27,6 +27,9 @@ The path to the directory of the playbook that was passed to the ansible-playboo
       set_fact:
         pods_check: "{{ pods_check | default([]) + [{'actual_pods' : item.split('/')[0] , 'desire_pods': item.split('/')[1] }] }}"
       loop: '{{ no_of_pods.stdout_lines | default([]) }}'
+   
+**** see List Operators to understand + sign in setfact var 
++ Concatenation :- Returns a list containing all the elements of the first and the second list.
 
 -------------------------------------------------
     - name: Restart host.
