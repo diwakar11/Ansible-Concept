@@ -1,0 +1,31 @@
+---
+
+- name: Create temp folder
+  tempfile:
+    state: directory
+    suffix: provisioner
+  register: provisioner
+
+- name: Copy all yaml files 
+  template:
+    src: "{{ item }}"
+    dest: '{{ provisioner.path }}/{{ item.split(".")[2] | basename}}.yaml'
+  with_fileglob:
+    - "../templates/*.yaml"
+    - "../templates/*.j2"
+
+- name: Finding all yaml files.
+  find:
+    paths: "{{ provisioner.path }}"
+    patterns: '*.yaml'
+  register: path_files
+
+- name: Create resource in kuberenetes.
+  command: kubectl apply -f "{{ item.path }}" --kubeconfig .kube/config
+  with_items: "{{ path_files.files  | sort(attribute='path')}}"
+
+- name: Deleting temp folder for local static provisioner.
+  file: 
+    path: "{{ provisioner.path }}"
+    state: absent
+
